@@ -1,0 +1,146 @@
+<title>ENCRYPTION ONLINE</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="page-header">
+    <h1>ENCRYPTION ONLINE</h1>
+  </div>
+
+
+
+
+
+
+  <ul class="nav nav-tabs" id="tabs" data-tabs="tabs">
+    <li role="presentation" class="active"> <a href="#encode" data-toggle="tab">הצפנה</a></li>
+    <li role="presentation"> <a href="#decode" data-toggle="tab">פענוח</a></li>
+  <!--הצפנת הקובץ אני כתבתי -->
+    <li role="presentation"> <a href="#encode_file" data-toggle="tab">הצפנת קובץ</a></li>
+
+  </ul>
+
+
+
+
+
+
+  <div id="my-tab-content" class="tab-content">
+    <div class="tab-pane active" id="encode">
+      <div>
+        <h2>הצפנת מסר</h2>
+        <p class="alert alert-info">
+          להצפנת מסר יש להעלות את התמונה ולהכניס את הטקסט בתיבה ולאחר מכן ללחוץ על הצפן
+        </p>
+        <form class="form">
+          <div class="form-group">
+            <input class="form-control" type="file" name="baseFile" onchange="previewEncodeImage()">
+          </div>
+
+          <div class="form-group" style="text-align:right">
+            <textarea id="text" class="form-control message" rows="3" placeholder="הכנס כאן את המסר להצפנה"></textarea>
+          </div>
+
+          <div class="form-group" style="text-align:right">
+            <textarea id="enc_key" class="form-control message" rows="3" placeholder="הכנס כאן מפתח הצפנה"></textarea>
+          </div>
+
+          <div class="form-group">
+            <button class="encode btn btn-default pull-right" onclick="encodeMessage()">הצפנה</button>
+          </div>
+        </form>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="error" style="display: none;"></div>
+      <div class="binary" style="display: none;">
+        <h3>הייצוג הבינארי של המסר</h3>
+        <textarea class="form-control message" style="word-wrap:break-word;">
+        </textarea>
+      </div>
+      <div class="images" style="display: none;">
+        <div class="original" style="display: none;">
+          <h3>התמונה המקורית</h3>
+          <canvas></canvas>
+        </div>
+        <div class="nulled" style="display: none;">
+          <h3>התמונה מנורמלת</h3>
+          <canvas></canvas>
+        </div>
+        <div class="message" style="display: none;">
+          <h3>המסר מוצפן בתמונה זו מקש ימני <span class="glyphicon glyphicon-arrow-right"></span> שמור בשם</h3>
+          <canvas></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="decode">
+      <div>
+        <h2>פענוח מסר</h2>
+        <p class="alert alert-info">
+          לפענח מסר מתמונה יש להעלות את התמונה עם המסר וללחוץ על פענוח
+        </p>
+        <form class="form">
+          <div class="form-group">
+            <input class="form-control" type="file" name="decodeFile" onchange="previewDecodeImage()">
+          </div>
+          <div class="form-group">
+            <button class="decode btn btn-default pull-right" onclick="decodeMessage()">פענוח</button>
+          </div>
+        </form>
+        <div class="clearfix"></div>
+      </div>
+      <div class="binary-decode" style="display: none;">
+        <h3>המסר המפוענח</h3>
+        <textarea class="form-control message" style="word-wrap:break-word;">
+        </textarea>
+      </div>
+      <div class="decode" style="display: none;">
+        <h3>Input</h3>
+        <canvas></canvas>
+      </div>
+    </div>
+    
+
+      <!-- צריך לקבל קובץ וורד ולהחזיר אותו -->
+    <div class="tab-pane" id="encode_file">
+      <div>
+        <h2>הצפנת קובץ</h2>
+        <p class="alert alert-info">
+          להצפנת קובץ  יש להעלות את הקובץ וללחוץ על הצפנת קובץ
+        </p>
+        <form class="form">
+          <div class="form-group">
+              <!--פונקציה שמחזירה את הקובץ המוצפן -->
+            <input class="form-control" type="file" name="encodeFile" onchange=" ">
+          </div>
+          <div class="form-group">
+            <button class="decode btn btn-default pull-right" onclick="RC4.prototype.encrypt">הצפנת קובץ</button>
+          </div>
+        </form>
+        <div class="clearfix"></div>
+      </div>
+      <div class="binary-decode" style="display: none;">
+        <h3>הקובץ המוצפן</h3>
+        <textarea class="form-control message" style="word-wrap:break-word;">
+        </textarea>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>
+
+<style>
+  canvas {
+    max-width: 100%;
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script type="text/JavaScript" src="script.js"></script>
+</body>
+</html>
